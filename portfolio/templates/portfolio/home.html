@@ -1,0 +1,44 @@
+<body>
+
+{% extends 'portfolio/base.html' %}
+
+{% block content %}
+
+    {% load static %}
+
+    <br>
+    
+    <br>
+    
+    <div class="row justify-content-center mb-3">
+        <div class="col-5"> 
+    <img src = "{% static 'portfolio/umar.jpeg' %}" height="500" style= "margin-left: auto;margin-right: auto;width: 40%;display: block;">
+        </div>
+    </div>
+    <div class="row justify-content-center mb-3">
+        <div class="col-mb-9 text-center">
+    <h1 style="text-align: center;color: black;"> Umar Nawaz Ch is a software developer<br>Motivated to develop somthing new! </h1>
+        </div>
+    </div>    
+    <br>
+    <hr style="color: rgba(31, 31, 31, 0.021);">
+    <h2 class="mt-5"><b> Portfolio</b></h2><br>
+    <div class="row">
+    {% for project in projects %}
+        <div class="col-lg-4 col-md-6">
+
+    <a href="{{ project.url }}" target="_blank"><img src = "{{ project.image.url }}" height="200" width="400"></a>
+    
+    <br>
+
+    <h2 style="color: black;">{{ project.title }}</h2>
+    
+    {{ project.description }}
+    <br>
+        </div>
+    {% endfor %}
+    </div>
+
+{% endblock %}
+
+</body>
